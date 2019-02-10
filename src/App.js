@@ -1,14 +1,23 @@
 import React, { Component } from 'react';
-import MyComponent from '../src/components/myComponent'
+import {Route, Switch} from 'react-router-dom';
+import Proptypes from 'prop-types';
+import Dashboard from '../src/components/pages/dashboardPage';
+import DetailPage from '../src/components/pages/detailPage';
+import 'semantic-ui-css/semantic.min.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <MyComponent greeting={'Hola Mundo desde una prop'}/>
-      </div>
-    );
-  }
+const App = ({location}) => (
+  <div className="ui container">
+    <Switch>
+      <Route location={location} path="/detail" exact component={DetailPage} />
+      <Route location={location} path="/" exact component={Dashboard} />
+    </Switch>
+  </div>
+);
+
+App.prototype = {
+  location: Proptypes.shape({
+    pathname: Proptypes.string.isRequired
+  }).isRequired
 }
 
 export default App;
