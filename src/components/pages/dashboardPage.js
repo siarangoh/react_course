@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { increaseLikes } from '../../actions/character'
 
 class Dashboard extends React.Component {
     state = {}
@@ -8,7 +9,9 @@ class Dashboard extends React.Component {
     render() {
         return (
             <div>
-                <h1> Dashboard </h1>
+                <h1> Dashboard likes {this.props.likes} </h1>
+                <button onClick={this.props.increaseLikes}> like to this character </button>
+                <br/>
                 <Link to="/detail"> Detail Page </Link>
                 /
                 <Link to="/state"> State Page </Link>
@@ -23,4 +26,4 @@ const mapStateToProps = (state) => ({
     likes: state.character.likes
 })
 
-export default connect(mapStateToProps, {})(Dashboard);
+export default connect(mapStateToProps, {increaseLikes})(Dashboard);
