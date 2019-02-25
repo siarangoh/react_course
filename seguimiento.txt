@@ -3,3 +3,5 @@ Clase #1
     - npm start -> Para correr el proyecto y verlo en el navegador
 Clase #2
     - npm install  react-router  react-router-dom
+Clase #3
+    - npm install redux react-redux redux-thunk redux-devtools-extension
